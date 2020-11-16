@@ -53,7 +53,7 @@ The goal of this project was to develop a classifier that can detect whether or 
 <a name="executive_summary"></a>
 ## Executive Summary
 
-As mentioned previously, the driver behind this project was to practice some NLP processes, construct a neural network with Tensorflow. In order to have a model to compare the neural network with, a random forest classifier was also developed as a baseline. The Convolutional Neural Network (CNN) performed better on the test and validation sets with an accuracy of XXX and XXX respectively. The next stage was to practice deploying the model using Flask and Docker. This process would open up the model, allowing for other people to use it without having to have their development environment set-up in the perfect way.
+As mentioned previously, the driver behind this project was to practice some NLP processes, construct a neural network with Tensorflow. In order to have a model to compare the neural network with, a random forest classifier was also developed as a baseline. The Convolutional Neural Network (CNN) performed better on the test and validation sets with an accuracy of XXX and XXX respectively. The next stage was to practice deploying the model using Flask and Docker to make the model accessible to others.
 
 <a name="preprocessing"></a>
 ### Data Preprocessing
