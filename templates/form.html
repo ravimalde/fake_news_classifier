@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Fake News Classifier</h2>
+<p> Type a news headline in the box below and then click submit. 
+    The Convolutional Neural Network will tell you if it thinks the headline is from a fake or real news article!<p>
+
+<form action="{{ url_for('predict_headline')}}"method="post">
+  <label for="headline">Headline:</label><br>
+  <input type="text" id="headline" name="headline" placeholder=""><br>
+  <input type="submit" value="Submit">
+</form>
+{{prediction_text}}
+</body>
+</html>

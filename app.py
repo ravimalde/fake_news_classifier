@@ -21,16 +21,16 @@ def home():
     return render_template('form.html')
 
 @app.route('/predict', methods=['POST'])
-def predict_review():
+def predict_headline():
     review = "".join([char for char in request.form.values()])
     review = tokenizer.texts_to_sequences([review])
-    review = tensorflow.keras.preprocessing.sequence.pad_sequences(review, padding='post', truncating='post', maxlen=500)
+    review = tensorflow.keras.preprocessing.sequence.pad_sequences(review, padding='post', truncating='post', maxlen=20)
     prediction = model.predict(review)
     probability = prediction[0][0]
     if prediction[0] >= 0.5:
-        return render_template('form.html', prediction_text=f'This review is POSITIVE! \nThe model is {np.round(probability * 100, 1)}% confident that the review is positive.')
+        return render_template('form.html', prediction_text=f'This news article is FAKE! \nThe model is {np.round(probability * 100)}% confident that this is the headline of a fake news article.')
     elif prediction[0] < 0.5:
-        return render_template('form.html', prediction_text=f'This review is NEGATIVE! \nThe model is {np.round((1-probability) * 100, 1)}% confident that the review is negative.')
+        return render_template('form.html', prediction_text=f'This news article is REAL! \nThe model is {np.round((1-probability) * 100)}% confident that this is the headline of a real news article.')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=1234)
