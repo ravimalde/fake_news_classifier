@@ -91,10 +91,26 @@ The preprocessing with NLTK comprised of the follow steps:
 
 #### Tensorflow
 
+The preprocessing with Tensorflow comprised of the follow steps:
+
+- Tokenisation
+- Sequencing
+- Padding
+
 <a name="modelling"></a>
 ### Modelling
 
-#### Random Forest
+A baseline logistic regression model was first made so that I could assess the performance of the neural networks against it. Two neural networks were then created, first a standard dense feed forward neural network, and then a convolutional neural network.
+
+The dataset was split into a training set of XXX instances, a validation set of XXX instances, and a test set of XXX instances.
+
+#### Logistic Regression
+
+The logistic regression configuration was selected using GridSearchCV and 5 StratifiedKFold splits. It achieved 72.4% accuracy on the training dataset and 73.1% accuracy on the validation dataset. Since there is no cost associated with false positives or false negatives, the threshold was kept at 0.5.
+
+#### Neural Network
+
+
 
 #### Convolutional Neural Network
 
