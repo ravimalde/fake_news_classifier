@@ -22,10 +22,7 @@ The goal of this project was to develop a classifier that can detect whether or 
 
 - templates: folder containing html template to be used by the Flask app
   * form.html: html code that outlines the design of the form
-- wordclouds: png images of fake and real headline wordclouds
-  * fake_cloud.png
-  * real_cloud.png
-  * wordcloud_combined.png
+- images: png images to be used in this readme
 - Dockerfile: file to build docker image
 - app.py: python file for Flask application
 - conv_net.h5: saved convolutional neural network model
