@@ -30,8 +30,6 @@ The goal of this project was to develop a classifier that can detect whether or 
 - app.py: python file for Flask application
 - conv_net.h5: saved convolutional neural network model
 - fake_news.ipynb: jupyter notebook for data preprocessing and modelling
-- fake_cloud.png: wordcloud for fake headlines
-- real_cloud.png: wordcloud for real headlines
 - requirements.txt: python dependencies needed to run the Flask application
 - tokenizer.pickle: Tensorflow tokenizer transformer for data preprocessing
 
