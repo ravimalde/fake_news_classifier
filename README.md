@@ -60,6 +60,18 @@ The goal of this project was to develop a classifier that can detect whether or 
 
 As mentioned previously, the driver behind this project was to practice some NLP processes, construct a neural network with Tensorflow. In order to have a model to compare the neural network with, a logistic regression classifier was also developed as a baseline. The Convolutional Neural Network (CNN) performed the best on the validation and test sets achieving an accuracy of 97.6% on both. The next stage was to deploy the model using Flask and Docker to make the model accessible to others.
 
+The following commands can be used to download and launch the application using Docker:
+
+1. Pull the Docker image from Docker Hub by running this command in the terminal:
+
+   ```docker pull ravimalde/fake-news-classifier:latest```
+
+2. Run a container from this image and map it to a given port:
+
+   ```docker run -p 1234:1234 ravimalde/fake-news-classifier:latest```
+
+3. Open up a browser of your choice and got to localhost:1234 in the browser's address bar.
+
 <a name="data_exploration"></a>
 ### Data Exploration
 
@@ -69,7 +81,7 @@ Wordclouds containing the top 200 most commonly featured words for both the fake
 
 <h5 align="center">Fake Headline Wordcloud (Left), Real Headline Wordcloud (Right)</h5>
 <p align="center">
-  <img src="https://github.com/ravimalde/fake_news_classifier/blob/master/wordclouds/wordcloud_combined.png" width=1000 align=middle>
+  <img src="https://github.com/ravimalde/fake_news_classifier/blob/master/images/wordcloud_combined.png" width=1000 align=middle>
 </p>
 
 <a name="preprocessing"></a>
@@ -102,7 +114,7 @@ The preprocessing with Tensorflow comprised of the follow steps:
 
 A baseline logistic regression model was first made so that I could assess the performance of the neural networks against it. Two neural networks were then created, first a standard dense feed forward neural network, and then a convolutional neural network.
 
-The dataset was split into a training set of XXX instances, a validation set of XXX instances, and a test set of XXX instances.
+The dataset was split into a training set of approximately 38,000 instances, a validation set of 4200 instances, and a test set of 4700 instances.
 
 #### Logistic Regression
 
@@ -110,9 +122,29 @@ The logistic regression configuration was selected using GridSearchCV and 5 Stra
 
 #### Neural Network
 
+The structure of the first neural network constructed is given in the image below - this was the highest performing configuration after many iterations.
 
+<h5 align="center">Neural Network Structure</h5>
+<p align="center">
+  <img src="https://github.com/ravimalde/fake_news_classifier/blob/master/images/neural_net.png" width=500 align=middle>
+</p>
+
+<h5 align="center">Neural Network Accuracy at Each Training Epoch</h5>
+<p align="center">
+  <img src="https://github.com/ravimalde/fake_news_classifier/blob/master/images/neural_net_history.png" width=600 align=middle>
+</p>
 
 #### Convolutional Neural Network
+
+<h5 align="center">Convolutional Neural Network Structure</h5>
+<p align="center">
+  <img src="https://github.com/ravimalde/fake_news_classifier/blob/master/images/conv_net.png" width=500 align=middle>
+</p>
+
+<h5 align="center">Convolutional Neural Network Accuracy at Each Training Epoch</h5>
+<p align="center">
+  <img src="https://github.com/ravimalde/fake_news_classifier/blob/master/images/conv_net_history.png" width=600 align=middle>
+</p>
 
 <a name="deploying_application"></a>
 ### Deployment
