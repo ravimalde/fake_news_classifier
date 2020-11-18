@@ -119,30 +119,41 @@ The logistic regression configuration was selected using GridSearchCV and 5 Stra
 
 #### Neural Network
 
-The structure of the first neural network constructed is given in the image below - this was the highest performing configuration after many iterations.
+The structure of the first neural network constructed is given in the image below - this was the highest performing configuration after many iterations. Dropout was used to prevent the model from overfitting to the training set.
 
 <h5 align="center">Neural Network Structure</h5>
 <p align="center">
   <img src="https://github.com/ravimalde/fake_news_classifier/blob/master/images/neural_net.png" width=500 align=middle>
 </p>
 
+The image below shows the models performance changing with each training epoch. An EarlyStopping callback was used so that the model would stop training once the validation accuracy stopped performing, the model's weights would then be restored to that of the best performing epoch, which was epoch 4 (the graph starts from 0 which is actually the first epoch).
+
 <h5 align="center">Neural Network Accuracy at Each Training Epoch</h5>
 <p align="center">
   <img src="https://github.com/ravimalde/fake_news_classifier/blob/master/images/neural_net_history.png" width=600 align=middle>
 </p>
 
-#### Convolutional Neural Network
+#### Convolutional Neural Network (CNN)
+
+CNNs are generally asociated with image classification tasks. This is due to their ability to detect patterns in a subspace of the image, also known as a kernel, that scans across the entirety of the image. For this same reason they are actually very good at detecting patterns in text as they can learn that certain combinations of words lead to a particular class outcome. It is essentially analysing the text using multigrams rather than unigrams, meaning multiple words are analysed together as one phrase, giving context to the individual words. For example, the phrase "It wasn't bad" should have a slightly positive sentiment, but if each word was analysed by itself this phrase would probably be classed as negative due to the high negative weighting of the word "bad". CNNs have the additional bonus of being much faster to train than Recurrent Neural Networks, which are most commonly used for NLP tasks. The image below shows the best performing CNN configuration.
 
 <h5 align="center">Convolutional Neural Network Structure</h5>
 <p align="center">
   <img src="https://github.com/ravimalde/fake_news_classifier/blob/master/images/conv_net.png" width=500 align=middle>
 </p>
 
+As before, the model's performance with each training epoch is given below and the same Early stopping callback was used. The best performing version was trained at epoch 5.
+
 <h5 align="center">Convolutional Neural Network Accuracy at Each Training Epoch</h5>
 <p align="center">
   <img src="https://github.com/ravimalde/fake_news_classifier/blob/master/images/conv_net_history.png" width=600 align=middle>
 </p>
 
+This model achieved an accuracy of 99.15% on the training set and 97.59% on the validation set. As this was the highest performing model, it was also tested on the test dataset, where it achieved an accuracy of 97.64%. This model was then saved as a file that could be loaded into the Flask application to make predictions on user's headlines.
+
 <a name="deploying_application"></a>
 ### Deployment
 
+A simple application was created using Flask and and a basic HTML script to format the page. The user can input a news headline and click on a submit button. Their submission then gets preprocessed using the same Tensorflow tokeniser and also gets padded to the same length (20 words long). The saved CNN then makes a prediction on the processed headline and returns its prediction to the user. 
+
+To make it easy for the user to run the application a Docker image was created and pushed to Docker Hub. This can be pulled by anyone and a container can be run from it which launches the Flask application. By mapping this to a port, the application can then be easily accessed via any browser (see instructions in the executive summary above).
