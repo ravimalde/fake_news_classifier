@@ -26,6 +26,7 @@ The goal of this project was to develop a classifier that can detect whether or 
 - Dockerfile: file to build docker image
 - app.py: python file for Flask application
 - conv_net.h5: saved convolutional neural network model
+- dense_net.h5: saved dense neural network model
 - fake_news.ipynb: jupyter notebook for data preprocessing and modelling
 - requirements.txt: python dependencies needed to run the Flask application
 - tokenizer.pickle: Tensorflow tokenizer transformer for data preprocessing
