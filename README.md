@@ -145,7 +145,7 @@ CNNs are generally asociated with image classification tasks. This is due to the
   <img src="https://github.com/ravimalde/fake_news_classifier/blob/master/images/conv_net.png" width=500 align=middle>
 </p>
 
-As before, the model's performance with each training epoch is given below and the same Early stopping callback was used. The best performing version was trained at epoch 5.
+As before, the model's performance with each training epoch is given below and the same early stopping callback was used. The best performing version was trained at epoch 5.
 
 <h5 align="center">Convolutional Neural Network Accuracy at Each Training Epoch</h5>
 <p align="center">
