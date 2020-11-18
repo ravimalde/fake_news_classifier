@@ -73,9 +73,9 @@ The following commands can be used to download and launch the application using 
 <a name="data_exploration"></a>
 ### Data Exploration
 
-The dataset contained 23481 fake news headlines and 21417 real news headlines. This slight class imbalance was corrected for by upsamping the real news headlines to match the number of fake ones.
-
 The dataset used can be found here: https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=True.csv
+
+It contained 23481 fake news headlines and 21417 real news headlines. This slight class imbalance was corrected for by upsamping the real news headlines to match the number of fake ones.
 
 Wordclouds containing the top 200 most commonly featured words for both the fake and real headlines are given below. It's clear that there are some words that appear many times in both classes. Most notably and unsurprisingly, 'trump' is up there as one of the most commonly featured words for both. When taking a closer look at both of these Wordclouds, there are apparent differences between the two - from a first observation, it could be argued that the fake news headlines contain some more description and emotive language, whereas the real news headlines feature more nouns such as 'White House', 'North Korea' and 'China'.
 
